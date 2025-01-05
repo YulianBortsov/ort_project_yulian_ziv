@@ -1,0 +1,19 @@
+backend:
+  replicas: 1
+  image:
+    repository: yulianbortsov/ort_proj_back
+    tag: 0.1
+  containerPort: 8080
+
+frontend:
+  replicas: 1
+  image:
+    repository: yulianbortsov/ort_proj_front
+    tag: 0.1
+  containerPort: 3000
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  path: /netflix
